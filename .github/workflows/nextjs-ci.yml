@@ -30,5 +30,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
+        file: Dockerfile.yaml
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/img-week:latest
