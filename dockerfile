@@ -5,8 +5,8 @@ FROM node:20
 WORKDIR /app
 
 # Copier le fichier package.json et installer les dépendances
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json package-lock.json ./
+RUN pnpm install
 
 # Copier le reste du code
 COPY . .
