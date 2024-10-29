@@ -1,9 +1,8 @@
 name: Docker CI/CD
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'  # Exécute tous les jours à minuit (00h00)
 
 jobs:
   build_and_push:
@@ -33,4 +32,4 @@ jobs:
         platforms: linux/amd64,linux/arm64
         file: ./dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/img-week:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/img-nightly:latest
